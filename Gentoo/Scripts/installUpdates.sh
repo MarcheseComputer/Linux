@@ -4,14 +4,14 @@
 time emerge -uDN --with-bdeps=y @world
 
 # 
-emerge --depclean
+time emerge --depclean
 
 # Make sure libraries are delightful
 time revdep-rebuild 
 time emerge @preserved-rebuild
 # 
 if [ -e / ]
-time perl-cleaner all
+time perl-cleaner --all
 
 # A way to update config files...
 # dispatch-conf
