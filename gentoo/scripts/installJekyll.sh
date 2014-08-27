@@ -1,7 +1,13 @@
 #!/bin/bash
 # This script pulls in Ruby dependencies and installs Jekyll for Portage-based Linux distributions. This script is a work in progress.
+VERSION="0"
 
-while [ ${VERSION} -lt 1 $$ ${VERSION} -gt 3 ];
+if [ `whoami` != root ]; then
+echo "Please run this script as root or using sudo."
+exit
+fi
+
+while [ $VERSION -lt 1 ] 
 do
 echo "Would you like the (1) development, (2) pre-release, or (3) normal version of Jekyll?"
 echo -ne "Enter 1, 2, or 3: "
