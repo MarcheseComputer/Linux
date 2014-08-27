@@ -1,0 +1,88 @@
+# .conkyrc by crimeboy
+# simple rc for use in laptops
+# external shell scripts: ipex and bat
+# font name: anorexia artiwiz font 
+# date: 16mar07
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# fiddle with window
+use_spacer yes
+use_xft yes
+
+# Update interval in seconds
+update_interval 3.0
+
+# Minimum size of text area
+# minimum_size 250 5
+
+# Draw shades?
+draw_shades no
+
+# Text stuff
+draw_outline no 
+draw_borders no
+font anorexia
+
+uppercase no # set to yes if you want all text to be in uppercase
+
+# Stippled borders?
+stippled_borders 3
+
+# border margins
+border_margin 2
+
+# border width
+border_width 1
+
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color grey
+
+own_window_colour brown
+own_window_transparent yes
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x 10
+gap_y 5
+
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT
+$color
+${color 878772}SYSTEM ${hr 1}$color
+$nodename $sysname $kernel on $machine
+${color 878772}Date ${hr 1}$color
+${time %k:%M:%S} \ ${time %A,%d %B}
+${color 878772}CPU ${hr 1}$color
+${freq}MHz   Load: ${loadavg}   Temp: ${acpitemp} 
+$cpubar
+${cpugraph 000000 ffffff}
+${color 878772}UPTIME ${hr 1} $color
+$uptime
+${color 878772}MEMORY / DISK ${hr 1}$color
+ramm:   $memperc%   
+${membar 6}$color
+swap:  $swapperc%   
+${swapbar 6}$color
+root:  ${fs_free_perc /}%   
+${fs_bar 6 /}$color
+${color 878772}BATTERY ${hr 1}$color
+${execi 10 bat}%
+${color 878772}NETWORK ${hr 1}$color
+adsl: ${alignr }${color 878772}lan$color ${addr eth0} ${color 878772}wan:$color ${execi 1 ipex 2>/dev/null}$color
+wifi:${color 878772} ${alignr }lan$color ${addr eth1}
+${color 878772}${hr 1}$color
+Down: $color${downspeed eth0} k/s ${alignr}Up: ${upspeed eth0} k/s
+${downspeedgraph eth0 25,140 000000 000000} ${alignr}${upspeedgraph eth0 25,140 000000 121212}$color
+Total: ${totaldown eth0} ${alignr}Total: ${totalup eth0}

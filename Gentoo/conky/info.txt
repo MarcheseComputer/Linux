@@ -1,0 +1,1 @@
+Uses battery.sh shell script to operate properly. It goes in /usr/local/bin
