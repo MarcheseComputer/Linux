@@ -50,3 +50,6 @@ case "${VERSION}" in
 		ls pkg/*.gem | head -n 1 | xargs gem install -l
 	;;
 esac
+
+echo -n "Regenerating your profile to grant you access to your new tools."
+source /etc/profile && echo "...done!"
