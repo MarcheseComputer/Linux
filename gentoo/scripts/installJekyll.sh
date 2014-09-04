@@ -1,9 +1,10 @@
 #!/bin/bash
-# This script pulls in Ruby dependencies and installs Jekyll for Portage-based Linux distributions. This script is a work in progress.
+# This script pulls in Ruby dependencies and installs Jekyll for Portage-based Linux distributions. 
+# This script is a work in progress.
 VERSION="0"
 
 if [ `whoami` != root ]; then
-echo "Please run this script as root or using sudo."
+echo "Please run this script as root or using sudo or as root."
 exit
 fi
 
